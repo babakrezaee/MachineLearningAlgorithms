@@ -1,2 +1,2 @@
 # MachineLearningAlgorithms
-Here I share R &amp; Python codes of machine learning algorithms
+Here I share R &amp; Python codes for machine learning algorithms
