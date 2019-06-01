@@ -1,4 +1,7 @@
-GraphConfusionMatrix <- function(df, threshold) {
+GraphConfusionMatrix <- function(yobs,phat, threshold) {
+  
+  df=data.frame(yobs,phat)
+  colnames(df)=c("yobs","phat")  
   v <- rep(NA, nrow(df))
   v <- ifelse(df$phat >= threshold & df$yobs == 1, "TP", v)
   v <- ifelse(df$phat >= threshold & df$yobs == 0, "FP", v)
