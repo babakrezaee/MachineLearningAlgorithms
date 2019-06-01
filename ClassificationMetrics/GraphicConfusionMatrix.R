@@ -14,6 +14,6 @@ GraphConfusionMatrix <- function(yobs,phat, threshold) {
     geom_violin(fill=rgb(1,1,1,alpha=0.6), color=NA) + 
     geom_jitter(aes(color=pred_type), alpha=0.6) +
     geom_hline(yintercept=threshold, color="red", alpha=0.6) +
-    scale_color_discrete(name = "type") +
+    scale_color_discrete(name = "Classification type") +
     labs(title=sprintf("Threshold at %.2f", threshold))
 }
