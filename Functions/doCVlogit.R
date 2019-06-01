@@ -1,7 +1,7 @@
 
 print("This function recieves 2 elements: data and formula; Set the inputs accordingly")
 
-doCVlogit<-function(data,formula,k){
+doCVlogit<-function(data,formula,k=10){
   
   #Randomly shuffle the data
   data<-data[sample(nrow(data)),]
