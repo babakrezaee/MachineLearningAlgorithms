@@ -1,8 +1,8 @@
 
 print("This function recieves 2 elements: data and formula; Set the inputs accordingly")
 
-doCVlogit<-function(data,formula,k=10){
-  
+doCVlogit<-function(data,formula,k){
+  k=k
   #Randomly shuffle the data
   data<-data[sample(nrow(data)),]
   #Create k equally size folds
