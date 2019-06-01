@@ -1,5 +1,5 @@
 
-print("This function recieves 2 elements: data and formula")
+print("This function recieves 2 elements: data and formula; Set the inputs accordingly")
 
 doCVlogit<-function(data,formula){
   
