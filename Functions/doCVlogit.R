@@ -1,7 +1,13 @@
 
-print("This function recieves 2 elements: data and formula; Set the inputs accordingly")
+print("This function recieves 3 elements: data, formula, and k (number of folds;default is 10); Set the inputs accordingly")
 
 doCVlogit<-function(data,formula,k=10){
+  
+  #a little error checking
+  if(!(is.data.frame(data))) {cat('error in docv: "data" is not a  data frame\n'); return(0)}
+  if(!(is.formula(formula))) {cat('error in docv: "formula" is not a vector\n'); return(0)}
+  is.wholenumber <- function(x, tol = .Machine$double.eps^0.5)  abs(x - round(x)) < tol
+  if(!(is.wholenumber(k) | k==1)) {cat('error in docv: k is not an integer larger than 1\n'); return(0)}
 
   #Randomly shuffle the data
   data<-data[sample(nrow(data)),]
