@@ -21,7 +21,7 @@ doCVlogit<-function(formula, Data, k=10){
     testIndexes <- which(folds==i,arr.ind=TRUE)
     testData <- Data[testIndexes, ]
     trainData <- Data[-testIndexes, ]
-    fm<-glm(formula,Data=trainData,family = "binomial")
+    fm<-glm(formula,data=trainData,family = "binomial")
     fitted_values[as.numeric(rownames(testData))]<-predict(fm, testData, type="response")
     
   }
