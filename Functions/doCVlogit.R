@@ -22,7 +22,7 @@ doCVlogit<-function(formula, data, k=10){
     testData <- data[testIndexes, ]
     trainData <- data[-testIndexes, ]
     fm=glm(formula,data=trainData,family = "binomial")
-    fitted_values[testIndexes]<-predict(fm, testData,, type="response")
+    fitted_values[as.numeric(rownames(testData))]<-predict(fm, testData,, type="response")
     #Use test and train data partitions however you desire...
   }
   
