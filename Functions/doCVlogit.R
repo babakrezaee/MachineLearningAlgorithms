@@ -5,7 +5,7 @@ doCVlogit<-function(Formula, Data, k=10){
   
   #a little error checking
   if(!(is.data.frame(Data))) {cat('error in docv: "Data" is not a  data frame\n'); return(0)}
-  if(!(is.formula(formula))) {cat('error in docv: "formula" is not a vector\n'); return(0)}
+  if(!(is.formula(formula))) {cat('error in docv: "formula" is not a formula\n'); return(0)}
   is.wholenumber <- function(x, tol = .Machine$double.eps^0.5)  abs(x - round(x)) < tol
   if(!(is.wholenumber(k) | k==1)) {cat('error in docv: k is not an integer larger than 1\n'); return(0)}
 
