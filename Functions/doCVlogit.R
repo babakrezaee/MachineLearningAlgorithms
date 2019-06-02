@@ -4,26 +4,26 @@ print("This function recieves 3 elements: formula, data, and k (number of folds;
 doCVlogit<-function(Formula, Data, k=10){
   
   #a little error checking
-  if(!(is.data.frame(data))) {cat('error in docv: "data" is not a  data frame\n'); return(0)}
+  if(!(is.data.frame(Data))) {cat('error in docv: "Data" is not a  data frame\n'); return(0)}
   if(!(is.formula(formula))) {cat('error in docv: "formula" is not a vector\n'); return(0)}
   is.wholenumber <- function(x, tol = .Machine$double.eps^0.5)  abs(x - round(x)) < tol
   if(!(is.wholenumber(k) | k==1)) {cat('error in docv: k is not an integer larger than 1\n'); return(0)}
 
   #Randomly shuffle the data
-  data<-data[sample(nrow(data)),]
+  Data<-Data[sample(nrow(Data)),]
   #Create k equally size folds
-  folds <- cut(seq(1,nrow(data)),breaks=k,labels=FALSE)
+  folds <- cut(seq(1,nrow(Data)),breaks=k,labels=FALSE)
   
-  fitted_values=rep(0,nrow(data))
+  fitted_values=rep(0,nrow(Data))
   #Perform k fold cross validation
   for(i in 1:k){
-    #Segement your data by fold using the which() function 
+    #Segement your Data by fold using the which() function 
     testIndexes <- which(folds==i,arr.ind=TRUE)
-    testData <- data[testIndexes, ]
-    trainData <- data[-testIndexes, ]
-    fm=glm(formula,data=trainData,family = "binomial")
+    testData <- Data[testIndexes, ]
+    trainData <- Data[-testIndexes, ]
+    fm=glm(formula,Data=trainData,family = "binomial")
     fitted_values[as.numeric(rownames(testData))]<-predict(fm, testData,, type="response")
-    #Use test and train data partitions however you desire...
+    
   }
   
   return(fitted_values)
