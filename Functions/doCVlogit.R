@@ -1,7 +1,7 @@
 
-print("This function recieves 3 elements: data, formula, and k (number of folds;default is 10); Set the inputs accordingly")
+print("This function recieves 3 elements: formula, data, and k (number of folds;default is 10); Set the inputs accordingly")
 
-doCVlogit<-function(data,formula,k=10){
+doCVlogit<-function(formula, data, k=10){
   
   #a little error checking
   if(!(is.data.frame(data))) {cat('error in docv: "data" is not a  data frame\n'); return(0)}
