@@ -22,11 +22,11 @@ doCVlogit<-function(formula, Data, k=10){
     testData <- Data[testIndexes, ]
     trainData <- Data[-testIndexes, ]
     fm<-glm(formula,Data=trainData,family = "binomial")
-    #fitted_values[as.numeric(rownames(testData))]<-predict(fm, testData,, type="response")
+    fitted_values[as.numeric(rownames(testData))]<-predict(fm, testData, type="response")
     
   }
   
-  return(fm)
+  return(fitted_values)
 }
 
 
