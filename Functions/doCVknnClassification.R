@@ -8,7 +8,7 @@
 
 print("This function recieves 3 elements: formula, data, and k (number of folds;default is 10); Set the inputs accordingly")
 
-doCVlogit<-function(formula, Data, nfolds=10){
+doCVknnClassification<-function(formula, Data, nfolds=10){
   
   #a little error checking
   if(!(is.data.frame(Data))) {cat('error in docv: "Data" is not a  data frame type\n'); return(0)}
