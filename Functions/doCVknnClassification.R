@@ -31,7 +31,7 @@ doCVknnClassification<-function(formula, Data, nfolds=10){
     testData <- Data[testIndexes, ]
     trainData <- Data[-testIndexes, ]
     fm<-kknn(formula, train=trainData, test=testData, k=5, kernel="rectangular")
-    fitted_values[as.numeric(rownames(testData))]<-predict(fm, testData, type="response")
+    fitted_values[as.numeric(rownames(testData))]<-fm$prob[,2]
   }
   
   return(fitted_values)
