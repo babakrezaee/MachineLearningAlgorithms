@@ -8,7 +8,7 @@
 
 print("This function recieves 3 elements: formula, data, and k (number of folds;default is 10); Set the inputs accordingly")
 
-doCVknnClassification<-function(formula, Data, nfolds=10){
+doCVknnClassification<-function(formula, Data, nfolds=10,K=2){
   
   #a little error checking
   if(!(is.data.frame(Data))) {cat('error in docv: "Data" is not a  data frame type\n'); return(0)}
@@ -30,7 +30,7 @@ doCVknnClassification<-function(formula, Data, nfolds=10){
     testIndexes <- which(folds==i,arr.ind=TRUE)
     testData <- Data[testIndexes, ]
     trainData <- Data[-testIndexes, ]
-    fm<-kknn(formula, train=trainData, test=testData, k=5, kernel="rectangular")
+    fm<-kknn(formula, train=trainData, test=testData, k=K, kernel="rectangular")
     fitted_values[as.numeric(rownames(testData))]<-fm$prob[,2]
   }
   
