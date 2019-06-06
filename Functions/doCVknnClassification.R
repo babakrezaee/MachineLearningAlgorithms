@@ -23,7 +23,7 @@ doCVknnClassification<-function(formula, Data, nfolds=10,K=20, KKNkernel="rectan
   
   fitted_values=rep(0,nrow(Data))
   #Perform nfolds fold cross validation
-  pb <- txtProgressBar(0, length(x), style = 3)
+  pb <- txtProgressBar(0, length(folds), style = 3)
   for(i in 1:nfolds){
     #Segement your Data by fold using the which() function 
     setTxtProgressBar(pb, i)
