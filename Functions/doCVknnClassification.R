@@ -30,7 +30,7 @@ doCVknnClassification<-function(formula, Data, nfolds=10,K=20){
     testIndexes <- which(folds==i,arr.ind=TRUE)
     testData <- Data[testIndexes, ]
     trainData <- Data[-testIndexes, ]
-    fm<-kknn(formula, train=trainData, test=testData, k=K,prob=TRUE, kernel="rectangular")
+    fm<-kknn(formula, train=trainData, test=testData, k=K, kernel="rectangular")
     fitted_values[as.numeric(rownames(testData))]<-fm$prob[,2]
   }
   
