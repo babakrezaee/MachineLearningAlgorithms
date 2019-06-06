@@ -8,7 +8,7 @@
 
 print("This function recieves 3 elements: formula, data, number of folds(default is 10), k of KNN (default is 20), and kernel (default is rectangular) ; Set the inputs accordingly")
 
-doCVknnClassification<-function(formula, Data, nfolds=10,K=20, kernel="rectangular"){
+doCVknnClassification<-function(formula, Data, nfolds=10,K=20, KKNkernel="rectangular"){
   
   #a little error checking
   if(!(is.data.frame(Data))) {cat('error in docv: "Data" is not a  data frame type\n'); return(0)}
