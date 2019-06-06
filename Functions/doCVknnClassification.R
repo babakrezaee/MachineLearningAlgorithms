@@ -6,7 +6,7 @@
 ############################################################
 ############################################################
 
-print("This function recieves 3 elements: formula, data, number of folds(default is 10), k of KNN (default is 20), and kernel (default is "rectangular") ; Set the inputs accordingly")
+print("This function recieves 3 elements: formula, data, number of folds(default is 10), k of KNN (default is 20), and kernel (default is rectangular) ; Set the inputs accordingly")
 
 doCVknnClassification<-function(formula, Data, nfolds=10,K=20, kernel="rectangular"){
   
