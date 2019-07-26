@@ -16,7 +16,7 @@ doCVlogit<-function(formula, Data, k=10){
   
   fitted_values=rep(0,nrow(Data))
   #Perform k fold cross validation
-  pb <- txtProgressBar(0, length(x), style = 3)
+  pb <- txtProgressBar(0, length(k), style = 3)
   for(i in 1:k){
     #Segement your Data by fold using the which() function 
     setTxtProgressBar(pb, i)
